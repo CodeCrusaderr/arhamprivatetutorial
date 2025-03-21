@@ -19,7 +19,7 @@ const Hero = () => {
 
       <div className="relative z-10 text-center px-4">
         <motion.img
-          src="/public/images/logo_withoutbg.png"
+          src="/images/logo_withoutbg.png"
           alt="Logo"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
