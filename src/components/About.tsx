@@ -1,59 +1,117 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import React, { useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+
+const images = [
+  "/src/assests/photo1.jpg",
+  "/src/assests/photo2.jpg",
+  "/src/assests/photo3.jpg",
+  "/src/assests/photo4.jpg",
+  "/src/assests/photo5.jpg",
+  "/src/assests/photo6.jpg",
+  "/src/assests/photo7.jpg",
+  "/src/assests/photo8.jpg",
+  "/src/assests/photo9.jpg",
+  "/src/assests/photo10.jpg",
+  "/src/assests/photo11.jpg",
+];
 
 const About = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [current, setCurrent] = useState(0);
+  const [sinceYear, setSinceYear] = useState(2000);
+  const [studentsTaught, setStudentsTaught] = useState(0);
+
+  const sinceYearControls = useAnimation();
+  const studentsTaughtControls = useAnimation();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSinceYear((prev) => (prev < 2012 ? prev + 1 : prev));
+    }, 200);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStudentsTaught((prev) => (prev < 5000 ? prev + 100 : prev));
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Title */}
         <motion.div
-          ref={ref}
           initial={{ y: 50, opacity: 0 }}
-          animate={inView ? { y: 0, opacity: 1 } : {}}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">About Us</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <div className="w-20 h-1 bg-[#214c87] mx-auto"></div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Image Slider */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
-            animate={inView ? { x: 0, opacity: 1 } : {}}
+            animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative w-full h-[300px] sm:h-[400px] md:h-[450px] overflow-hidden rounded-lg shadow-xl"
           >
-            <img
-              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              alt="Students studying"
-              className="rounded-lg shadow-xl"
-            />
+            {images.map((img, index) => (
+              <motion.img
+                key={index}
+                src={img}
+                alt={`Slide ${index + 1}`}
+                className={`absolute w-full h-full object-cover transition-opacity duration-700 ${index === current ? "opacity-100" : "opacity-0"
+                  }`}
+              />
+            ))}
           </motion.div>
 
+          {/* Text Content */}
           <motion.div
             initial={{ x: 100, opacity: 0 }}
-            animate={inView ? { x: 0, opacity: 1 } : {}}
+            animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="space-y-6"
           >
-            <h3 className="text-xl font-bold text-[#004f98]">Empowering young mind</h3>
-            <h3 className="text-3xl font-bold text-gray-900">Your success is our mission</h3>
+            <h3 className="text-xl font-bold text-[#214c87]">Empowering Young Minds</h3>
+            <h3 className="text-3xl font-bold text-gray-900">Your Success is Our Mission</h3>
             <p className="text-gray-600">
-              At Arham Private Tutorials, we specialize in nurturing the potential of students from 7th to 10th standard. Our dedicated educators are committed to providing personalized attention and tailored learning experiences that cater to each student's unique needs. Located in Bhayander West , we focus on building strong foundational skills and fostering a love for learning. Join us in shaping a brighter future for your child through quality education and consistent support.
+              At Arham Private Tutorials, we specialize in nurturing the potential of students from 7th to 10th standard.
+              Our dedicated educators provide personalized attention and tailored learning experiences.
+              Located in Bhayander West, we focus on building strong foundational skills and fostering a love for learning.
             </p>
             <div className="grid grid-cols-2 gap-4 mt-8">
               <div className="text-center">
-                <h4 className="text-4xl font-bold text-blue-600">15+</h4>
-                <p className="text-gray-600">Years Experience</p>
+                <p className="text-gray-600">Since</p>
+                <motion.h4
+                  animate={sinceYearControls}
+                  className="text-4xl font-bold text-[#214c87]"
+                >
+                  {sinceYear}
+                </motion.h4>
               </div>
               <div className="text-center">
-                <h4 className="text-4xl font-bold text-blue-600">5000+</h4>
                 <p className="text-gray-600">Students Taught</p>
+                <motion.h4
+                  animate={studentsTaughtControls}
+                  className="text-4xl font-bold text-[#214c87]"
+                >
+                  {studentsTaught}+
+                </motion.h4>
               </div>
             </div>
           </motion.div>

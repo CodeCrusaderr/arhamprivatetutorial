@@ -5,39 +5,35 @@ import { BookOpen, Calculator, FlaskRound as Flask } from 'lucide-react';
 
 const services = [
   {
-    icon: <Calculator className="h-8 w-8" />,
-    title: 'Mathematics Coaching',
-    description: 'Enhance your math skills with our expert guidance.',
+    icon: <BookOpen className="h-8 w-8" />,
+    title: 'Excellence in Languages ',
+    description: 'ENGLISH | HINDI | MARATHI',
     details: [
-      'Arham Private Tutorials offers tailored math coaching for 7th to 10th standard students.',
-      'Experienced tutors build a strong foundation in mathematical concepts.',
-      'Interactive lessons make math engaging and accessible.',
-      'Covers algebra, geometry, and statistics to boost confidence and exam success.',
-      'Join us to excel in mathematics!'
+      '• Comprehensive Language Skills: Enhance reading, writing, speaking, and listening through fun activities and real-life examples.',
+      '• Literature Made Easy: Understand chapters and stories in an engaging, child-friendly way.',
+      '• Confident Communication: Build confidence with public speaking, debates, and creative writing.',
+      '• Strong Writing Skills: Master letters, reports, stories, and more with structured practice.'
     ]
   },
   {
     icon: <Flask className="h-8 w-8" />,
     title: 'Science Tutoring',
-    description: 'Explore the wonders of science with our dedicated tutors.',
+    description: 'Concept based teaching in Science',
     details: [
-      'Arham Private Tutorials provides science coaching for 7th to 10th standard students.',
-      'Expert tutors simplify biology, chemistry, and physics concepts.',
-      'Hands-on experiments make learning engaging and practical.',
-      'Personalized attention ensures academic success.',
-      'Develop critical thinking and a passion for science with us!'
+      '•	Learning Concepts, Not Just Facts: We focus on helping students truly understand scientific ideas instead of just memorizing information.',
+      '•	Science in Everyday Life: Students discover how science connects to things they see and use every day.',
+      '•	Problem-solving Skills: We teach students how to think through scientific questions step-by-step, building skills they will need for future studies.',
     ]
   },
   {
-    icon: <BookOpen className="h-8 w-8" />,
-    title: 'English Language Coaching',
-    description: 'Master the English language with personalized coaching.',
+    icon: <Calculator className="h-8 w-8" />,
+    title: 'Mathematics Tutoring',
+    description: 'Robust teaching and practice in Mathematics',
     details: [
-      'Arham Private Tutorials offers English coaching for 7th to 10th standard students.',
-      'Focus on reading, writing, and speaking for confident communication.',
-      'Interactive lessons and literature enhance language skills.',
-      'Personalized curriculum ensures steady progress.',
-      'Join us to excel in English and communicate effectively!'
+      '•	Strong Basics: We make sure students master the fundamentals before moving on to harder topics.',
+      '•	Lots of Practice: Students work through many different types of problems to build both accuracy and speed.',
+      '•	Smart Thinking: We encourage students to solve problems in different ways, developing logical thinking skills.',
+      '•	Individual Attention: We identify what each student needs help with and provide targeted practice to help them improve.'
     ]
   }
 ];
@@ -73,11 +69,9 @@ const Services = () => {
 
                 <div className="absolute w-full h-full backface-hidden rotate-y-180">
                   <div className="h-full bg-blue-600 p-8 rounded-xl shadow-lg flex flex-col items-center justify-center text-white">
-                    <h3 className="text-2xl font-bold mb-6">{service.title}</h3>
-                    <ul className="space-y-3">
+                    <ul className="space-y-2">
                       {service.details.map((detail, i) => (
                         <li key={i} className="flex items-center">
-                          <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
                           {detail}
                         </li>
                       ))}

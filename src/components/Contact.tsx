@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Phone, Mail, MapPin } from "lucide-react";
@@ -8,6 +8,27 @@ const Contact = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+
+  const handleSendMessage = () => {
+    const { name, email, message } = formData;
+
+    // Proper encoding for new lines and special characters
+    const whatsappMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // Using api.whatsapp.com instead of wa.me for better compatibility
+    const whatsappURL = `https://api.whatsapp.com/send?phone=917021699614&text=${encodedMessage}`;
+    console.log(whatsappURL);
+    // Open WhatsApp
+    window.open(whatsappURL, "_blank");
+  };
 
   return (
     <section id="contact" className="py-20 bg-gray-50">
@@ -32,12 +53,14 @@ const Contact = () => {
             className="bg-white p-8 rounded-xl shadow-lg"
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div>
                 <label className="block text-gray-700 mb-2" htmlFor="name">Name</label>
                 <input
                   type="text"
                   id="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Your Name"
                 />
@@ -47,6 +70,8 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="your@email.com"
                 />
@@ -56,6 +81,8 @@ const Contact = () => {
                 <textarea
                   id="message"
                   rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Your message..."
                 ></textarea>
@@ -63,9 +90,10 @@ const Contact = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={handleSendMessage}
                 className="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300"
               >
-                Send Message
+                Send Message via WhatsApp
               </motion.button>
             </form>
           </motion.div>
@@ -98,10 +126,7 @@ const Contact = () => {
             </a>
 
             {/* Phone - Clickable */}
-            <a
-              href="tel:+917021699614"
-              className="flex items-start space-x-4 hover:bg-gray-100 p-3 rounded-lg transition"
-            >
+            <a href="tel:+917021699614" className="flex items-start space-x-4 hover:bg-gray-100 p-3 rounded-lg transition">
               <div className="bg-blue-100 p-3 rounded-full">
                 <Phone className="h-6 w-6 text-blue-600" />
               </div>
@@ -112,10 +137,7 @@ const Contact = () => {
             </a>
 
             {/* Email - Clickable */}
-            <a
-              href="mailto:arhamprivatetutorials@gmail.com"
-              className="flex items-start space-x-4 hover:bg-gray-100 p-3 rounded-lg transition"
-            >
+            <a href="mailto:arhamprivatetutorials@gmail.com" className="flex items-start space-x-4 hover:bg-gray-100 p-3 rounded-lg transition">
               <div className="bg-blue-100 p-3 rounded-full">
                 <Mail className="h-6 w-6 text-blue-600" />
               </div>
@@ -124,20 +146,6 @@ const Contact = () => {
                 <p className="text-gray-600 mt-2">arhamprivatetutorials@gmail.com</p>
               </div>
             </a>
-
-            {/* Embedded Google Map */}
-            <div className="mt-8">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.459490943617!2d72.84910037467067!3d19.305857644717364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b1d3320aa053%3A0xe449564942978a5b!2sArham%20Private%20Tutorials!5e0!3m2!1sen!2sin!4v1742227851507!5m2!1sen!2sin"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-lg shadow-lg"
-              ></iframe>
-            </div>
           </motion.div>
         </div>
       </div>

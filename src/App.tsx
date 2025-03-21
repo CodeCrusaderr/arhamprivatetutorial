@@ -13,7 +13,7 @@ function App() {
       <div className="relative z-0">
         <Hero />
       </div>
-      <div className="relative z-10 bg-white">11a
+      <div className="relative z-10 bg-white">
         <About />
         <Services />
         <Contact />
