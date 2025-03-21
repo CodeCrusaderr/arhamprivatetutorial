@@ -11,7 +11,7 @@ const Hero = () => {
         muted
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/public/videos/background_video.mp4" type="video/mp4" />
+        <source src="/videos/background_video.mp4" type="video/mp4" />
       </video>
 
       {/* White Transparent Overlay */}

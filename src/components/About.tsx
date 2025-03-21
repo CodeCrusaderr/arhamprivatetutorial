@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 const images = [
-  "/public/images/photo1.jpg",
-  "/public/images/photo2.jpg",
-  "/public/images/photo3.jpg",
-  "/public/images/photo4.jpg",
-  "/public/images/photo5.jpg",
-  "/public/images/photo6.jpg",
-  "/public/images/photo7.jpg",
-  "/public/images/photo8.jpg",
-  "/public/images/photo9.jpg",
-  "/public/images/photo10.jpg",
-  "/public/images/photo11.jpg",
+  "/images/photo1.jpg",
+  "/images/photo2.jpg",
+  "/images/photo3.jpg",
+  "/images/photo4.jpg",
+  "/images/photo5.jpg",
+  "/images/photo6.jpg",
+  "/images/photo7.jpg",
+  "/images/photo8.jpg",
+  "/images/photo9.jpg",
+  "/images/photo10.jpg",
+  "/images/photo11.jpg",
 ];
 
 const About = () => {

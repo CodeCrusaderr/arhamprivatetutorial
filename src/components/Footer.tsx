@@ -40,7 +40,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Connect With Us</h4>
             <div className="flex space-x-4">
               <motion.a
-                href="https://facebook.com"
+                href="https://www.facebook.com/ArhamPrivateTutorials/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2 }}
@@ -49,7 +49,7 @@ const Footer = () => {
                 <Facebook className="h-5 w-5" />
               </motion.a>
               <motion.a
-                href="https://instagram.com"
+                href="https://www.instagram.com/arham_apt?igsh=OThvdDhyZDRxNGhj"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2 }}

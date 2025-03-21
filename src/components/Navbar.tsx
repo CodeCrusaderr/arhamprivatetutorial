@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <img
-              src="src/assests/logo2.png"
+              src="/images/logo2.png"
               alt="Logo"
               className="h-14 w-auto md:h-16"
             />
@@ -28,10 +28,10 @@ const Navbar = () => {
             <a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
 
             {/* Social Media Icons after "Contact" */}
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors">
+            <a href="https://www.instagram.com/arham_apt?igsh=OThvdDhyZDRxNGhj" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors">
               <Instagram className="h-6 w-6" />
             </a>
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors">
+            <a href="https://www.facebook.com/ArhamPrivateTutorials/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors">
               <Facebook className="h-6 w-6" />
             </a>
           </div>
