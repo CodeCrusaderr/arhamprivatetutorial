@@ -11,7 +11,7 @@ const Hero = () => {
         muted
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="src/assests/background_video.mp4" type="video/mp4" />
+        <source src="/public/videos/background_video.mp4" type="video/mp4" />
       </video>
 
       {/* White Transparent Overlay */}
@@ -19,7 +19,7 @@ const Hero = () => {
 
       <div className="relative z-10 text-center px-4">
         <motion.img
-          src="src/assests/logo_withoutbg.png"
+          src="/public/images/logo_withoutbg.png"
           alt="Logo"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
