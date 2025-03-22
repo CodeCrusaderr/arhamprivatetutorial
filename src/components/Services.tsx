@@ -17,7 +17,7 @@ const services = [
   },
   {
     icon: <Flask className="h-8 w-8" />,
-    title: 'Science Tutoring',
+    title: 'Excellence in Science',
     description: 'Concept based teaching in Science',
     details: [
       '•	Learning Concepts, Not Just Facts: We focus on helping students truly understand scientific ideas instead of just memorizing information.',
@@ -27,7 +27,7 @@ const services = [
   },
   {
     icon: <Calculator className="h-8 w-8" />,
-    title: 'Mathematics Tutoring',
+    title: 'Excellence in Mathematics',
     description: 'Robust teaching and practice in Mathematics',
     details: [
       '•	Strong Basics: We make sure students master the fundamentals before moving on to harder topics.',
