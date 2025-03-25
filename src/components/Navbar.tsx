@@ -28,7 +28,7 @@ const Navbar = () => {
             <a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
 
             {/* Social Media Icons after "Contact" */}
-            <a href="https://www.instagram.com/arham_apt?igsh=OThvdDhyZDRxNGhj" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors">
+            <a href="https://www.instagram.com/arham_apt?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors">
               <Instagram className="h-6 w-6" />
             </a>
             <a href="https://www.facebook.com/ArhamPrivateTutorials/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 transition-colors">

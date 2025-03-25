@@ -50,7 +50,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-20 bg-[#214c87]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ y: 50, opacity: 0 }}
@@ -58,8 +58,8 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">About Us</h2>
-          <div className="w-20 h-1 bg-[#214c87] mx-auto"></div>
+          <h2 className="text-4xl font-bold text-white mb-4">About Us</h2>
+          <div className="w-20 h-1 bg-white mx-auto"></div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -83,17 +83,17 @@ const About = () => {
             {/* Left Arrow Button */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-4xl text-white bg-black bg-opacity-50 px-3 py-1 rounded-full"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-3xl text-white bg-black bg-opacity-60 px-3 py-1 rounded-full hover:bg-opacity-80 transition"
             >
-              {"<"} {/* Unicode Left Arrow */}
+              {"<"}
             </button>
 
             {/* Right Arrow Button */}
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-4xl text-white bg-black bg-opacity-50 px-3 py-1 rounded-full"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-3xl text-white bg-black bg-opacity-60 px-3 py-1 rounded-full hover:bg-opacity-80 transition"
             >
-              {">"} {/* Unicode Right Arrow */}
+              {">"}
             </button>
           </motion.div>
 
@@ -104,21 +104,21 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="space-y-6"
           >
-            <h3 className="text-xl font-bold text-[#214c87]">Empowering Young Minds</h3>
-            <h3 className="text-3xl font-bold text-gray-900">Your Success is Our Mission</h3>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-bold text-white">Empowering Young Minds</h3>
+            <h3 className="text-3xl font-bold text-white">Your Success is Our Mission</h3>
+            <p className="text-gray-200">
               At Arham Private Tutorials, we specialize in nurturing the potential of students from 7th to 10th standard.
               Our dedicated educators provide personalized attention and tailored learning experiences.
               Located in Bhayander West, we focus on building strong foundational skills and fostering a love for learning.
             </p>
             <div className="grid grid-cols-2 gap-4 mt-8">
               <div className="text-center">
-                <p className="text-gray-600">Since</p>
-                <h4 className="text-4xl font-bold text-[#214c87]">{sinceYear}</h4>
+                <p className="text-gray-300">Since</p>
+                <h4 className="text-4xl font-bold text-white">{sinceYear}</h4>
               </div>
               <div className="text-center">
-                <p className="text-gray-600">Students Taught</p>
-                <h4 className="text-4xl font-bold text-[#214c87]">{studentsTaught}+</h4>
+                <p className="text-gray-300">Students Taught</p>
+                <h4 className="text-4xl font-bold text-white">{studentsTaught}+</h4>
               </div>
             </div>
           </motion.div>
